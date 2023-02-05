@@ -1,0 +1,37 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div style="display:flex">
+    <h3>Traduction vers : </h3>
+    <select name="langue" style="margin:0  0 5px 8px" class="form-select form-select-sm" aria-label="Default select example">
+        <option selected>Langues</option>
+        <option value="French">Francais</option>
+        <option value="Creole">Créole</option>
+        <option value="English">Anglais</option>
+        <option value="German">Allemand</option>
+        <option value="Spanish">Espagnol</option>
+        <option value="Chinese">Chinois</option>
+        <option value="Japan">Japonais</option>
+        <option value="Russian">Russe</option>
+    </select>
+    </div>
+    <input name="user_input" type="text" class="form-control" placeholder="Comment vas tu..." value="{{text}}">
+    <button type="submit" class="btn btn-primary mt-3" >Traduire</button>
+</form>
+
+{% if response %}
+    <div style="margin:10px 0" class="card">
+        {{response | safe}}
+    </div>
+{% endif %}
+
+
+
+
+
+{% endblock content %}

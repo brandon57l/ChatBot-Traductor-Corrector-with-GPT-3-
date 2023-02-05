@@ -1,0 +1,26 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div style="display:flex">
+    <h3>Correcteur</h3>
+    </div>
+    <textarea name="user_input" type="text" class="form-control" placeholder="Mon texte...">{{text}}</textarea>
+    <button type="submit" class="btn btn-primary mt-3" >Corriger</button>
+</form>
+
+{% if response %}
+    <div style="margin:10px 0" class="card">
+        {{response | safe}}
+    </div>
+{% endif %}
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+
+
+
+<h3>Demande quelque chose</h3>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input" placeholder="ex : écris un article sur...">
+    <button type="submit" class="btn btn-primary mt-3" >Envoyer</button>
+</form>
+
+{% if response %}
+    <div style="margin:10px 0" class="card">
+        {{response | safe}}
+    </div>
+{% endif %}
+
+
+{% endblock content %}
